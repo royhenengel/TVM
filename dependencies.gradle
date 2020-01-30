@@ -11,7 +11,7 @@ ext {
 
     androidX = [
             appCompat              : "androidx.appcompat:appcompat:$appCompat",
-            supportLegacy          : "androidx.legacy:legacy-support-v4:$supportLibrary",
+            supportLibrary          : "androidx.legacy:legacy-support-v4:$supportLibrary",
             constraintLayout       : "androidx.constraintlayout:constraintlayout:$contraintLayout",
             recyclerview           : "androidx.recyclerview:recyclerview:$recyclerview",
             cardview               : "com.android.support:cardview-v7:$supportLibrary",
@@ -21,7 +21,7 @@ ext {
             // Arch
             paging                 : "android.arch.paging:runtime:$paging",
             archLifecycleExtentions: "android.arch.lifecycle:extensions:$arch",
-            xLifecycleExtensions   : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensions"
+            lifecycleExtensions   : "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensions"
     ]
 
     ktx = [
@@ -45,18 +45,15 @@ ext {
             okHttp3Logging           : "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor"
     ]
 
-    // Dagger + Auto Value (needed for Dagger)
     di = [:]
     di.implementations = [
             dagger         : "com.google.dagger:dagger:$dagger",
             daggerAndroid : "com.google.dagger:dagger-android:$dagger",
-            androidSupport: "com.google.dagger:dagger-android-support:$dagger",
-            autoValue     : "com.google.auto.value:auto-value:$auto_value"
+            androidSupport: "com.google.dagger:dagger-android-support:$dagger"
     ]
     di.annotationProcessors = [
             daggerCompiler         : "com.google.dagger:dagger-compiler:$dagger",
-            daggerAndroid_processor: "com.google.dagger:dagger-android-processor:$dagger",
-            autoCalueAnnotations  : "com.google.auto.value:auto-value-annotations:$auto_value"
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger"
     ]
 
     rxJava = [
@@ -76,4 +73,5 @@ ext {
             espressoCore   : "androidx.test.espresso:espresso-core:$espressoCore",
             archCoreTesting: "android.arch.core:core-testing:$archCoreTesting"
     ]
+
 }
