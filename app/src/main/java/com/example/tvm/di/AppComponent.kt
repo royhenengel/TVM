@@ -2,6 +2,7 @@ package com.example.tvm.di
 
 import com.example.tvm.TvmApp
 import com.example.tvm.ui.di.module.ActivityBindingModule
+import com.example.tvm.ui.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -12,7 +13,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,
-        ActivityBindingModule::class
+        ActivityBindingModule::class,
+        ViewModelModule::class
     ]
 )
 interface AppComponent : AndroidInjector<TvmApp> {

@@ -4,20 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import com.example.tvm.ui.R
+import androidx.lifecycle.ViewModelProviders
 import com.example.tvm.ui.databinding.MainFragmentBinding
 import com.example.tvm.ui.main.viewmodel.MainFragmentViewModel
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class MainFragment : DaggerFragment() {
 
     companion object {
         fun newInstance() = MainFragment()
     }
 
-    private val viewModel by viewModels<MainFragmentViewModel>()
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private lateinit var viewModel: MainFragmentViewModel
 
     private lateinit var binding: MainFragmentBinding
 
@@ -25,11 +28,17 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainFragmentViewModel::class.java)
+
         return MainFragmentBinding.inflate(inflater, container, false).let {
             binding = it
 
             it.root
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
     }
 
 }
