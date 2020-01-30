@@ -26,6 +26,9 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -33,10 +36,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin"
 
-    implementation androidX.material
-    implementation androidX.appCompat
-    implementation androidX.constraintLayout
-    implementation ktx.core
+    implementation androidX.values()
+    implementation ktx.values()
     implementation libs.timber
 
     // DI
