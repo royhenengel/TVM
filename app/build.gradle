@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 apply from: '../dependencies.gradle'
 
@@ -35,4 +36,16 @@ dependencies {
     implementation androidX.appCompat
     implementation androidX.constraintLayout
     implementation ktx.core
+    implementation libs.timber
+
+    // DI
+    implementation di.implementations.values()
+    kapt di.annotationProcessors.values()
+
+    implementation project(':ui')
+    implementation project(':domain')
+    implementation project(':data')
+    implementation project(':cache')
+    implementation project(':remote')
+
 }
