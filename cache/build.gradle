@@ -40,4 +40,5 @@ dependencies {
     kapt di.annotationProcessors.values()
 
     implementation project(':data')
+    implementation project(':shared')
 }
