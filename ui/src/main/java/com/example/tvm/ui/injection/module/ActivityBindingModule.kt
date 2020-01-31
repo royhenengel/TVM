@@ -1,7 +1,7 @@
-package com.example.tvm.ui.di.module
+package com.example.tvm.ui.injection.module
 
 import com.example.tvm.ui.MainActivity
-import com.example.tvm.ui.di.ActivityScoped
+import com.example.tvm.ui.injection.ActivityScoped
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

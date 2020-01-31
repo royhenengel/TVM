@@ -1,7 +1,7 @@
-package com.example.tvm.ui.di.module
+package com.example.tvm.ui.injection.module
 
 import androidx.lifecycle.ViewModelProvider
-import com.example.tvm.ui.di.TvmViewModelFactory
+import com.example.tvm.ui.injection.TvmViewModelFactory
 import dagger.Binds
 import dagger.Module
 

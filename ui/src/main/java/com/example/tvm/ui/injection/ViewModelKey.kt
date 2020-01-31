@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.tvm.ui.di
+package com.example.tvm.ui.injection
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

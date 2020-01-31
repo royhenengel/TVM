@@ -1,4 +1,4 @@
-package com.example.tvm.ui.di;
+package com.example.tvm.ui.injection;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
