@@ -1,8 +1,8 @@
 package com.example.tvm.domain.repository
 
-import com.example.tvm.domain.model.Bo
+import com.example.tvm.domain.model.Item
 
 interface Repository {
 
-    fun item(): Bo
+    fun item(): Item
 }
