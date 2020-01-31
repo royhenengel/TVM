@@ -1,18 +1,28 @@
 package com.example.tvm.shared.result
 
-import com.example.tvm.shared.result.Result.Success
+import com.example.tvm.shared.result.SingleResult.Success
 
-/**
- * A generic class that holds a value with its loading status.
- * @param <T>
- */
-sealed class Result<out R> {
+sealed class SingleResult<out R> {
 
-    data class Success<out T>(val data: T) : Result<T>()
+    data class Success<out T>(val data: T) : SingleResult<T>()
 
-    data class Error(val exception: Exception) : Result<Nothing>()
+    data class Error(val exception: Exception) : SingleResult<Nothing>()
 
-    object Loading : Result<Nothing>()
+    override fun toString(): String {
+        return when (this) {
+            is Success<*> -> "Success[data=$data]"
+            is Error -> "Error[exception=$exception]"
+        }
+    }
+}
+
+sealed class ObservableResult<out R> {
+
+    data class Success<out T>(val data: T) : ObservableResult<T>()
+
+    data class Error(val exception: Exception) : ObservableResult<Nothing>()
+
+    object Loading : ObservableResult<Nothing>()
 
     override fun toString(): String {
         return when (this) {
@@ -23,12 +33,16 @@ sealed class Result<out R> {
     }
 }
 
-/**
- * `true` if [Result] is of type [Success] & holds non-null [Success.data].
- */
-val Result<*>.succeeded
+val SingleResult<*>.succeeded
     get() = this is Success && data != null
 
-fun <T> Result<T>.successOr(fallback: T): T {
+val ObservableResult<*>.succeeded
+    get() = this is ObservableResult.Success && data != null
+
+fun <T> SingleResult<T>.successOr(fallback: T): T {
     return (this as? Success<T>)?.data ?: fallback
+}
+
+fun <T> ObservableResult<T>.successOr(fallback: T): T {
+    return (this as? ObservableResult.Success<T>)?.data ?: fallback
 }
