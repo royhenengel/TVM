@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.example.tvm.ui.databinding.MainFragmentBinding
 import com.example.tvm.ui.main.viewmodel.MainFragmentViewModel
 import dagger.android.support.DaggerFragment
@@ -35,10 +34,6 @@ class MainFragment : DaggerFragment() {
 
             it.root
         }
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 
 }

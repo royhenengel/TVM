@@ -8,11 +8,12 @@ class DataStoreFactory @Inject constructor(
     private val remoteDataStore: RemoteDataStore
 ) {
 
-    fun cache(): DataStore {
+    fun cacheDataStore(): DataStore {
         return cacheDataStore
     }
 
-    fun remote(): DataStore {
+    fun remoteDataStore(): DataStore {
         return remoteDataStore
     }
+
 }

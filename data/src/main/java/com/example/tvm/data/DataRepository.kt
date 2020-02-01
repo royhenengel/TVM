@@ -14,15 +14,15 @@ class DataRepository @Inject constructor(
 ) : Repository {
 
     override suspend fun item(): Result<Item> {
-        return dataStoreFactory.remote().item().let {result ->
+        return dataStoreFactory.remoteDataStore().item().let { result ->
             when (result) {
-                is com.example.tvm.shared.result.SingleResult.Result.Success -> {
+                is Result.Success -> {
                     val item = itemMapper.fromEntity(result.data)
 
                     Result.Success(item)
                 }
 
-                is com.example.tvm.shared.result.SingleResult.Result.Error -> { Result.Error(result.exception) }
+                is Result.Error -> { Result.Error(result.exception) }
             }
         }
     }

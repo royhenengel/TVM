@@ -6,4 +6,5 @@ import com.example.tvm.shared.result.Result
 interface Repository {
 
     suspend fun item(): Result<Item>
+
 }

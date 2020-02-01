@@ -11,7 +11,7 @@ class ItemEntityMapper @Inject constructor() : EntityMapper<ItemModel, ItemEntit
         return ItemEntity(id = type.id)
     }
 
-    override fun mapToCached(type: ItemEntity): ItemModel {
+    override fun toCached(type: ItemEntity): ItemModel {
         return ItemModel(id = type.id)
     }
 

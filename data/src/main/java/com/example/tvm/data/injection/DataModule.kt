@@ -17,4 +17,5 @@ abstract class DataModule {
 
     @Binds
     abstract fun bindItemMapper(itemMapper: ItemMapper): Mapper<ItemEntity, Item>
+
 }
