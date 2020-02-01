@@ -1,6 +1,6 @@
 package com.example.tvm
 
-import com.example.tvm.di.DaggerAppComponent
+import com.example.tvm.injection.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import timber.log.Timber

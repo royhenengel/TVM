@@ -26,6 +26,7 @@ ext {
 
     ktx = [
             core              : "androidx.core:core-ktx:$ktxCore",
+            fragments         : "androidx.fragment:fragment-ktx:$ktxFragments",
             coroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ktxCoroutines",
             lifecycleViewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktxLifecycleViewModel",
             navigationFragment: "androidx.navigation:navigation-fragment-ktx:$ktxNavigation",
