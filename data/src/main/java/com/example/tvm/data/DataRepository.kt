@@ -5,7 +5,7 @@ import com.example.tvm.data.model.ItemEntity
 import com.example.tvm.data.source.DataStoreFactory
 import com.example.tvm.domain.model.Item
 import com.example.tvm.domain.repository.Repository
-import com.example.tvm.shared.result.SingleResult
+import com.example.tvm.shared.result.Result
 import javax.inject.Inject
 
 class DataRepository @Inject constructor(
@@ -13,16 +13,16 @@ class DataRepository @Inject constructor(
     private val itemMapper: Mapper<ItemEntity, Item>
 ) : Repository {
 
-    override suspend fun item(): SingleResult<Item> {
+    override suspend fun item(): Result<Item> {
         return dataStoreFactory.remote().item().let {result ->
             when (result) {
-                is SingleResult.Success -> {
+                is com.example.tvm.shared.result.SingleResult.Result.Success -> {
                     val item = itemMapper.fromEntity(result.data)
 
-                    SingleResult.Success(item)
+                    Result.Success(item)
                 }
 
-                is SingleResult.Error -> { SingleResult.Error(result.exception) }
+                is com.example.tvm.shared.result.SingleResult.Result.Error -> { Result.Error(result.exception) }
             }
         }
     }
