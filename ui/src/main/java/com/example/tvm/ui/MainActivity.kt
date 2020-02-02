@@ -2,9 +2,11 @@ package com.example.tvm.ui
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.commit
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.example.tvm.ui.databinding.ActivityMainBinding
-import com.example.tvm.ui.main.view.MainFragment
 import dagger.android.support.DaggerAppCompatActivity
 
 class MainActivity : DaggerAppCompatActivity() {
@@ -16,8 +18,15 @@ class MainActivity : DaggerAppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        supportFragmentManager.commit {
-            replace(binding.container.id, MainFragment.newInstance())
-        }
+        val navController = Navigation.findNavController(this, R.id.main_nav_host)
+
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.destMain))
+
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.main_nav_host).navigateUp()
+    }
+
 }
