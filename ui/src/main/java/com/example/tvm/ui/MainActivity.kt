@@ -2,8 +2,8 @@ package com.example.tvm.ui
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.tvm.ui.databinding.ActivityMainBinding
@@ -13,12 +13,14 @@ class MainActivity : DaggerAppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val navController = Navigation.findNavController(this, R.id.main_nav_host)
+        navController = Navigation.findNavController(this, R.id.mainNavHost)
 
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.destMain))
 
@@ -26,7 +28,7 @@ class MainActivity : DaggerAppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return findNavController(R.id.main_nav_host).navigateUp()
+        return navController.navigateUp()
     }
 
 }
