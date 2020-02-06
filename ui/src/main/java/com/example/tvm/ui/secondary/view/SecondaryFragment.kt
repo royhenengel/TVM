@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.tvm.ui.databinding.SecondaryFragmentBinding
 import com.example.tvm.ui.secondary.viewmodel.SecondaryFragmentViewModel
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class SecondaryFragment : Fragment() {
+class SecondaryFragment : DaggerFragment() {
 
     companion object {
         fun newInstance() = SecondaryFragment()
