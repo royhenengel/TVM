@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 apply from: '../dependencies.gradle'
 
@@ -38,10 +39,9 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin"
 
-    implementation androidX.material
-    implementation androidX.appCompat
-    implementation androidX.constraintLayout
-    implementation ktx.core
+    implementation androidX.values()
+    implementation ktx.values()
+
     implementation libs.timber
 
     // DI
