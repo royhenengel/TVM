@@ -20,6 +20,8 @@ class MainActivity : DaggerAppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        setSupportActionBar(binding.toolbar)
+
         navController = Navigation.findNavController(this, R.id.mainNavHost)
 
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.destMain))
