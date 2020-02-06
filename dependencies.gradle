@@ -6,12 +6,13 @@ ext {
             kotlinStdLib  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
             kotlinSafeArgs: "androidx.navigation:navigation-safe-args-gradle-plugin:$ktxNavigation",
             glide         : "com.github.bumptech.glide:glide:$glide",
-            timber        : "com.jakewharton.timber:timber:$timber"
+            timber        : "com.jakewharton.timber:timber:$timber",
+            coroutines    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
     ]
 
     androidX = [
             appCompat              : "androidx.appcompat:appcompat:$appCompat",
-            supportLibrary          : "androidx.legacy:legacy-support-v4:$supportLibrary",
+            supportLibrary         : "androidx.legacy:legacy-support-v4:$supportLibrary",
             constraintLayout       : "androidx.constraintlayout:constraintlayout:$contraintLayout",
             recyclerview           : "androidx.recyclerview:recyclerview:$recyclerview",
             cardview               : "com.android.support:cardview-v7:$supportLibrary",
@@ -27,7 +28,6 @@ ext {
     ktx = [
             core              : "androidx.core:core-ktx:$ktxCore",
             fragments         : "androidx.fragment:fragment-ktx:$ktxFragments",
-            coroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ktxCoroutines",
             lifecycleViewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktxLifecycleViewModel",
             navigationFragment: "androidx.navigation:navigation-fragment-ktx:$ktxNavigation",
             navigationUi      : "androidx.navigation:navigation-ui-ktx:$ktxNavigation"
