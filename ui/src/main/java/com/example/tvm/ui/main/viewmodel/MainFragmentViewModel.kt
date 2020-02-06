@@ -12,9 +12,11 @@ class MainFragmentViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _navSecondary = MutableLiveData<Event<Int>>()
-    val navSecondary: LiveData<Event<Int>> = _navSecondary
+    val navSecondary: LiveData<Event<Int>>
+        get() = _navSecondary
 
     fun onClicked() {
         _navSecondary.value = Event(0)
     }
+
 }
