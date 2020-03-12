@@ -43,7 +43,8 @@ ext {
 
             // OkHttp
             okHttp3                  : "com.squareup.okhttp3:okhttp:$okhttp",
-            okHttp3Logging           : "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor"
+            okHttp3Logging           : "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor",
+            gson                     : "com.google.code.gson:gson:$gson"
     ]
 
     di = [:]
