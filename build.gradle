@@ -15,7 +15,7 @@ buildscript {
     }
 
     ext {
-        buildGradle = '3.6.0-rc02'
+        buildGradle = '4.0.0-beta01'
         kotlin = '1.3.61'
         kotlinJvmTarget = '1.8'
         compileSdkVersion = 29
@@ -52,6 +52,7 @@ buildscript {
         espressoCore = '3.1.0-alpha4'
         archCoreTesting = '2.1.0'
         mockk = '1.9.3'
+        gson = '2.8.6'
 
         applicationId = 'com.example.tvm'
         kotlin_version = '1.3.61'
