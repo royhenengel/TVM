@@ -39,6 +39,9 @@ dependencies {
     implementation di.implementations.values()
     kapt di.annotationProcessors.values()
 
+    // Network
+    implementation networkDependencies.values()
+
     implementation project(':data')
     implementation project(':shared')
 }
