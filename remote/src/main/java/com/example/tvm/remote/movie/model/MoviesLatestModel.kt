@@ -2,7 +2,7 @@ package com.example.tvm.remote.movie.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MoviesLatest(
+data class MoviesLatestModel(
 
 	@SerializedName("original_language")
 	val originalLanguage: String? = null,
@@ -23,13 +23,13 @@ data class MoviesLatest(
 	val revenue: Int? = null,
 
 	@SerializedName("genres")
-	val genres: List<GenreModel?>? = null,
+	val genres: List<GenreModel>? = null,
 
 	@SerializedName("popularity")
 	val popularity: Int? = null,
 
 	@SerializedName("production_countries")
-	val productionCountries: List<Any?>? = null,
+	val productionCountries: List<Any>? = null,
 
 	@SerializedName("id")
 	val id: Int? = null,
@@ -53,10 +53,10 @@ data class MoviesLatest(
 	val posterPath: Any? = null,
 
 	@SerializedName("spoken_languages")
-	val spokenLanguages: List<Any?>? = null,
+	val spokenLanguages: List<Any>? = null,
 
 	@SerializedName("production_companies")
-	val productionCompanies: List<Any?>? = null,
+	val productionCompanies: List<Any>? = null,
 
 	@SerializedName("release_date")
 	val releaseDate: String? = null,

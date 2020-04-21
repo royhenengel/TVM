@@ -1,6 +1,6 @@
 package com.example.tvm.data.model
 
-data class ResultsModel(
+data class ResultsEntity(
 	val overview: String?,
 	val originalLanguage: String?,
 	val originalTitle: String?,

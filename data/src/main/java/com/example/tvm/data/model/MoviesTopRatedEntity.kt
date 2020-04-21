@@ -1,9 +1,8 @@
 package com.example.tvm.data.model
 
-data class MoviesNowPlayingModel(
-	val dates: DatesEntity?,
+data class MoviesTopRatedEntity(
 	val page: Int?,
 	val totalPages: Int?,
-	val results: List<ResultsModel?>?,
+	val results: List<ResultsEntity>?,
 	val totalResults: Int?
 )

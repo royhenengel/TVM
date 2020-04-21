@@ -11,7 +11,7 @@ data class MoviesPopularModel(
 	val totalPages: Int? = null,
 
 	@SerializedName("results")
-	val results: List<ResultsModel?>? = null,
+	val results: List<ResultsModel>? = null,
 
 	@SerializedName("total_results")
 	val totalResults: Int? = null

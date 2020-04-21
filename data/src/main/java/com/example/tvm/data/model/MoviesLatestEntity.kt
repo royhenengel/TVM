@@ -1,6 +1,6 @@
 package com.example.tvm.data.model
 
-data class MoviesLatest(
+data class MoviesLatestEntity(
 	val originalLanguage: String?,
 	val imdbId: String?,
 	val video: Boolean?,
