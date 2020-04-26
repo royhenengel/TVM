@@ -1,4 +1,4 @@
-package com.example.tvm.remote
+package com.example.tvm.remote.movie
 
 import com.example.tvm.data.repository.movies.MoviesRemote
 import javax.inject.Inject

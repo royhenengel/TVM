@@ -1,7 +1,7 @@
 package com.example.tvm.data.component
 
 import com.example.tvm.base.component.BaseComponent
-import com.example.tvm.data.module.DataMoviesModule
+import com.example.tvm.data.module.DataModule
 import com.example.tvm.domain.component.DomainComponent
 import dagger.Component
 
@@ -11,7 +11,7 @@ import dagger.Component
         RemoteBridgeComponent::class,
         CacheBridgeComponent::class
     ],
-    modules = [DataMoviesModule::class]
+    modules = [DataModule::class]
 )
 interface DataComponent {
 
