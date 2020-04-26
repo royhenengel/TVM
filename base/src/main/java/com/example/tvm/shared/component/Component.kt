@@ -2,6 +2,7 @@ package com.example.tvm.shared.component
 
 import android.app.Application
 import android.content.Context
+import androidx.lifecycle.ViewModelProvider
 import com.example.tvm.shared.module.APPLICATION_CONTEXT
 import com.example.tvm.shared.module.BaseModule
 import com.example.tvm.shared.module.ViewModelFactoryModule
@@ -20,10 +21,11 @@ interface BaseComponent {
     @Named(APPLICATION_CONTEXT)
     fun provideApplicationContext(): Context
 
+    fun provideViewModelFactory(): ViewModelProvider.Factory
+
     @Component.Factory
     interface Factory {
 
-        @BindsInstance
-        fun create(application: Application): BaseComponent
+        fun create(@BindsInstance application: Application): BaseComponent
     }
 }

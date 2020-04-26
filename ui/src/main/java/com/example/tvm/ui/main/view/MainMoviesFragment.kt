@@ -4,19 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.tvm.shared.fragment.BaseFragment
 import com.example.tvm.ui.databinding.MainFragmentBinding
-import com.example.tvm.ui.main.viewmodel.MainFragmentViewModel
-import dagger.android.support.DaggerFragment
+import com.example.tvm.ui.main.viewmodel.MainMoviesFragmentViewModel
 import javax.inject.Inject
 
-class MainFragment : DaggerFragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
+class MainMoviesFragment: BaseFragment() {
 
     @Inject
-    lateinit var viewModel: MainFragmentViewModel
+    lateinit var viewModel: MainMoviesFragmentViewModel
 
     private lateinit var binding: MainFragmentBinding
 

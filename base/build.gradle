@@ -35,6 +35,7 @@ dependencies {
 
     implementation androidX.material
     implementation androidX.appCompat
+    implementation androidX.lifecycleExtensions
     implementation androidX.constraintLayout
     implementation ktx.core
     implementation libs.timber
