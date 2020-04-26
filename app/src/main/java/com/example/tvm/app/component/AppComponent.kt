@@ -1,9 +1,11 @@
-package com.example.tvm.injection
+package com.example.tvm.app.component
 
-import com.example.tvm.TvmApp
+import com.example.tvm.app.TvmApp
+import com.example.tvm.app.module.AppModule
 import com.example.tvm.cache.injection.CacheModule
 import com.example.tvm.data.injection.DataModule
 import com.example.tvm.remote.injection.RemoteModule
+import com.example.tvm.shared.module.BaseModule
 import com.example.tvm.ui.injection.module.ActivityBindingModule
 import com.example.tvm.ui.injection.module.ViewModelModule
 import dagger.BindsInstance
@@ -14,19 +16,18 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = [
-        AndroidSupportInjectionModule::class,
-        ActivityBindingModule::class,
-        ViewModelModule::class,
-        DataModule::class,
-        RemoteModule::class,
-        CacheModule::class
-    ]
+    dependencies = [BaseModule::class],
+    modules = [AppModule::class]
 )
-interface AppComponent : AndroidInjector<TvmApp> {
+interface AppComponent  {
+
+    fun inject(application: TvmApp)
+
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance application: TvmApp): AppComponent
+
+        @BindsInstance
+        fun create(application: TvmApp): AppComponent
     }
 
 }
