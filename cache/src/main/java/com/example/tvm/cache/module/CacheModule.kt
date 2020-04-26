@@ -1,4 +1,4 @@
-package com.example.tvm.cache.injection
+package com.example.tvm.cache.module
 
 import com.example.tvm.cache.MoviesCacheImpl
 import com.example.tvm.data.repository.movies.MoviesCache
