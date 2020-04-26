@@ -38,5 +38,5 @@ dependencies {
     kapt di.annotationProcessors.values()
 
     implementation project(':domain')
-    implementation project(':shared')
+    implementation project(':base')
 }
