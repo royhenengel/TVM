@@ -10,7 +10,7 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class ViewModelModule {
 
-    // TODO Move factory to base
+    // TODO Move factory and impl to base
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelProviderFactoryImpl): ViewModelProvider.Factory
 
