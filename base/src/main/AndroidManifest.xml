@@ -2,7 +2,7 @@
     package="com.example.tvm.shared" >
 
     <application>
-        <activity android:name="com.example.tvm.base.activity.BaseActivity" />
+        <activity android:name="com.example.tvm.ui.activity.BaseActivity" />
     </application>
 
 </manifest>

@@ -15,4 +15,5 @@ object BaseModule {
     @Provides
     @JvmStatic
     fun provideApplicationContext(application: Application): Context = application.applicationContext
+
 }

@@ -1,4 +1,4 @@
-package com.example.tvm.base.module
+package com.example.tvm.ui.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

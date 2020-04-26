@@ -2,6 +2,7 @@ package com.example.tvm.data.component
 
 import com.example.tvm.base.component.BaseComponent
 import com.example.tvm.data.module.DataModule
+import com.example.tvm.domain.component.DataBridgeComponent
 import com.example.tvm.domain.component.DomainComponent
 import dagger.Component
 
@@ -13,8 +14,7 @@ import dagger.Component
     ],
     modules = [DataModule::class]
 )
-interface DataComponent {
-
+interface DataComponent: DataBridgeComponent {
 
     @Component.Factory
     interface Factory {
@@ -23,7 +23,7 @@ interface DataComponent {
             baseComponent: BaseComponent,
             remoteBridgeComponent: RemoteBridgeComponent,
             cacheBridgeComponent: CacheBridgeComponent
-        ): DomainComponent
+        ): DataComponent
     }
 
 }

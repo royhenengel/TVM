@@ -49,13 +49,10 @@ ext {
 
     di = [:]
     di.implementations = [
-            dagger         : "com.google.dagger:dagger:$dagger",
-            daggerAndroid : "com.google.dagger:dagger-android:$dagger",
-            androidSupport: "com.google.dagger:dagger-android-support:$dagger"
+            dagger         : "com.google.dagger:dagger:$dagger"
     ]
     di.annotationProcessors = [
-            daggerCompiler         : "com.google.dagger:dagger-compiler:$dagger",
-            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger"
+            daggerCompiler         : "com.google.dagger:dagger-compiler:$dagger"
     ]
 
     rxJava = [
