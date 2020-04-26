@@ -3,7 +3,7 @@ package com.example.tvm.data.source
 import com.example.tvm.data.model.ItemEntity
 import com.example.tvm.data.repository.Cache
 import com.example.tvm.data.repository.DataStore
-import com.example.tvm.shared.result.Result
+import com.example.tvm.base.result.Result
 import javax.inject.Inject
 
 class CacheDataStore @Inject constructor(

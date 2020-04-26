@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.example.tvm.shared.activity.BaseActivity
+import com.example.tvm.base.activity.BaseActivity
 import com.example.tvm.ui.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 

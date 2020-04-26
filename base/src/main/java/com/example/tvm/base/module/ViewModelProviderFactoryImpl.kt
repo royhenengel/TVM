@@ -1,4 +1,4 @@
-package com.example.tvm.shared.module
+package com.example.tvm.base.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

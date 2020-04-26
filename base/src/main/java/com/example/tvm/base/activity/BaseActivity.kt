@@ -1,4 +1,4 @@
-package com.example.tvm.shared.activity
+package com.example.tvm.base.activity
 
 import androidx.appcompat.app.AppCompatActivity
 

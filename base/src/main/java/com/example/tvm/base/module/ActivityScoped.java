@@ -1,4 +1,4 @@
-package com.example.tvm.shared.module;
+package com.example.tvm.base.module;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

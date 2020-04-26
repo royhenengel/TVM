@@ -2,7 +2,7 @@ package com.example.tvm.app.component
 
 import com.example.tvm.app.TvmApp
 import com.example.tvm.app.module.AppModule
-import com.example.tvm.shared.component.BaseComponent
+import com.example.tvm.base.component.BaseComponent
 import dagger.Component
 import javax.inject.Singleton
 

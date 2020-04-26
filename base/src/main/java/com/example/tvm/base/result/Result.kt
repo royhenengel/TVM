@@ -1,6 +1,6 @@
-package com.example.tvm.shared.result
+package com.example.tvm.base.result
 
-import com.example.tvm.shared.result.Result.Success
+import com.example.tvm.base.result.Result.Success
 
 sealed class Result<out R> {
 

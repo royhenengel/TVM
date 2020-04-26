@@ -1,4 +1,4 @@
-package com.example.tvm.shared.fragment
+package com.example.tvm.base.fragment
 
 import androidx.fragment.app.Fragment
 

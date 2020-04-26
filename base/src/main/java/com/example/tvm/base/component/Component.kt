@@ -1,11 +1,11 @@
-package com.example.tvm.shared.component
+package com.example.tvm.base.component
 
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
-import com.example.tvm.shared.module.APPLICATION_CONTEXT
-import com.example.tvm.shared.module.BaseModule
-import com.example.tvm.shared.module.ViewModelFactoryModule
+import com.example.tvm.base.module.APPLICATION_CONTEXT
+import com.example.tvm.base.module.BaseModule
+import com.example.tvm.base.module.ViewModelFactoryModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named

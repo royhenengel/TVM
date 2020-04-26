@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Google LLC
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.tvm.shared.module
+package com.example.tvm.base.module
 
-import javax.inject.Scope
+import androidx.lifecycle.ViewModel
+import dagger.MapKey
+import kotlin.reflect.KClass
 
-import kotlin.annotation.Retention
-import kotlin.annotation.Target
-import kotlin.annotation.AnnotationRetention
-
-/**
- * The FragmentScoped custom scoping annotation specifies that the lifespan of a dependency be
- * the same as that of a Fragment. This is used to annotate dependencies that behave like a
- * singleton within the lifespan of a Fragment
- */
-@Scope
+@Target(AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
 @Retention(AnnotationRetention.RUNTIME)
-@Target(AnnotationTarget.TYPE, AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
-annotation class FragmentScoped
+@MapKey
+annotation class ViewModelKey(val value: KClass<out ViewModel>)

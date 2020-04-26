@@ -2,7 +2,7 @@ package com.example.tvm.domain.interactor
 
 import com.example.tvm.domain.model.Item
 import com.example.tvm.domain.repository.Repository
-import com.example.tvm.shared.result.Result
+import com.example.tvm.base.result.Result
 import javax.inject.Inject
 
 class UseCase @Inject constructor(

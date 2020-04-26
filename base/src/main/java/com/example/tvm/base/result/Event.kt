@@ -1,4 +1,4 @@
-package com.example.tvm.shared.result
+package com.example.tvm.base.result
 
 import androidx.lifecycle.Observer
 
