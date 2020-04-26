@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tvm.shared" >
+
+    <application>
+        <activity android:name="com.example.tvm.ui.activity.BaseActivity" />
+    </application>
+
+</manifest>

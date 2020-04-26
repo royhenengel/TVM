@@ -32,8 +32,8 @@ android {
         targetCompatibility 1.8
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
 }
@@ -58,6 +58,6 @@ dependencies {
     implementation project(':data')
     implementation project(':cache')
     implementation project(':remote')
-    implementation project(':shared')
+    implementation project(':base')
 
 }

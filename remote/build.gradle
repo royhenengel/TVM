@@ -43,5 +43,5 @@ dependencies {
     implementation networkDependencies.values()
 
     implementation project(':data')
-    implementation project(':shared')
+    implementation project(':base')
 }
