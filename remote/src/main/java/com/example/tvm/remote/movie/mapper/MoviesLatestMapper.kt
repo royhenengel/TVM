@@ -6,9 +6,10 @@ import com.example.tvm.remote.mapper.EntityMapper
 import com.example.tvm.remote.movie.model.GenreModel
 import com.example.tvm.remote.movie.model.MoviesLatestModel
 import javax.inject.Inject
+import javax.inject.Named
 
 class MoviesLatestMapper @Inject constructor(
-	private val genreMapper: EntityMapper<GenreModel, GenreEntity>
+	private val genreMapper: GenreMapper
 ) : EntityMapper<MoviesLatestModel, MoviesLatestEntity> {
 
     override fun fromRemote(type: MoviesLatestModel): MoviesLatestEntity {
@@ -37,7 +38,7 @@ class MoviesLatestMapper @Inject constructor(
 			tagline = type.tagline,
 			adult = type.adult,
 			homepage = type.homepage,
-			status =type.status
+			status = type.status
 		)
     }
 

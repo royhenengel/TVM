@@ -9,9 +9,9 @@ class DatesMapper @Inject constructor(): EntityMapper<DatesModel, DatesEntity> {
 
 	override fun fromRemote(type: DatesModel): DatesEntity {
 		return DatesEntity(
-			maximum = type.maximum,
-			minimum = type.minimum
-		)
+            maximum = type.maximum,
+            minimum = type.minimum
+        )
 	}
 
 }

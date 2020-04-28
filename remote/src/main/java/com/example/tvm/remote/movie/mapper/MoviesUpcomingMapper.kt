@@ -8,20 +8,19 @@ import com.example.tvm.remote.mapper.EntityMapper
 import com.example.tvm.remote.movie.model.DatesModel
 import com.example.tvm.remote.movie.model.MoviesUpcomingModel
 import com.example.tvm.remote.movie.model.ResultsModel
-import com.google.gson.annotations.SerializedName
 import javax.inject.Inject
 
 class MoviesUpcomingMapper @Inject constructor(
-	private val datesMapper: Mapper<DatesEntity, DatesModel>,
-	private val resultsMapper: Mapper<ResultsEntity, ResultsModel>
+	private val datesMapper: DatesMapper,
+	private val resultsMapper: ResultsMapper
 ): EntityMapper<MoviesUpcomingModel, MoviesUpcomingEntity> {
 
 	override fun fromRemote(type: MoviesUpcomingModel): MoviesUpcomingEntity {
 		return MoviesUpcomingEntity(
-			dates = type.dates?.let { datesMapper.toEntity(it) },
+			dates = type.dates?.let { datesMapper.fromRemote(it) },
 			page = type.page,
 			totalPages = type.totalPages,
-			results = type.results?.map { resultsMapper.toEntity(it) },
+			results = type.results?.map { resultsMapper.fromRemote(it) },
 			totalResults = type.totalResults
 		)
 	}

@@ -2,6 +2,8 @@ package com.example.tvm.base.module
 
 import android.app.Application
 import android.content.Context
+import com.example.tvm.base.logging.Logger
+import com.example.tvm.base.logging.TimberLogger
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -15,5 +17,10 @@ object BaseModule {
     @Provides
     @JvmStatic
     fun provideApplicationContext(application: Application): Context = application.applicationContext
+
+
+    @Provides
+    @JvmStatic
+    fun provideLogger(): Logger = TimberLogger
 
 }

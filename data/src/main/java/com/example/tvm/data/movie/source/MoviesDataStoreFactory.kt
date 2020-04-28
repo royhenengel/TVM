@@ -1,6 +1,6 @@
-package com.example.tvm.data.source.movies
+package com.example.tvm.data.movie.source
 
-import com.example.tvm.data.repository.movies.MoviesDataStore
+import com.example.tvm.data.movie.repository.MoviesDataStore
 import javax.inject.Inject
 
 class MoviesDataStoreFactory @Inject constructor(
