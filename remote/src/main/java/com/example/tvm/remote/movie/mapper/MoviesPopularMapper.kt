@@ -8,7 +8,7 @@ import com.example.tvm.remote.movie.model.ResultsModel
 import javax.inject.Inject
 
 class MoviesPopularMapper @Inject constructor(
-    private val resultsMapper: EntityMapper<ResultsModel, ResultsEntity>
+    private val resultsMapper: ResultsMapper
 ) : EntityMapper<MoviesPopularModel, MoviesPopularEntity> {
 
     override fun fromRemote(type: MoviesPopularModel): MoviesPopularEntity {

@@ -1,6 +1,6 @@
 package com.example.tvm.data.component
 
-import com.example.tvm.data.repository.movies.MoviesCache
+import com.example.tvm.data.movie.repository.MoviesCache
 
 interface CacheBridgeComponent {
 

@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 import javax.inject.Inject
 
 class MoviesTopRatedMapper @Inject constructor(
-	private val resultsMapper: EntityMapper<ResultsModel, ResultsEntity>
+	private val resultsMapper: ResultsMapper
 ): EntityMapper<MoviesTopRatedModel, MoviesTopRatedEntity>{
 
 	override fun fromRemote(type: MoviesTopRatedModel): MoviesTopRatedEntity {

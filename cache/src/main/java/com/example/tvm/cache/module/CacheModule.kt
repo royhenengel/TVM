@@ -1,7 +1,7 @@
 package com.example.tvm.cache.module
 
 import com.example.tvm.cache.MoviesCacheImpl
-import com.example.tvm.data.repository.movies.MoviesCache
+import com.example.tvm.data.movie.repository.MoviesCache
 import dagger.Binds
 import dagger.Module
 
