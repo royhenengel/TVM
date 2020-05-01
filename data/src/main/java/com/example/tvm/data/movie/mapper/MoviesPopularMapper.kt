@@ -9,13 +9,22 @@ import javax.inject.Inject
 
 class MoviesPopularMapper @Inject constructor(
     private val resultsMapper: ResultsMapper
-) : EntityMapper<MoviesPopularModel, MoviesPopularEntity> {
+) : Mapper<MoviesPopularEntity, MoviesPopular> {
 
-    override fun fromRemote(type: MoviesPopularModel): MoviesPopularEntity {
+    override fun fromEntity(type: MoviesPopularEntity): MoviesPopular {
+        return MoviesPopular(
+            page = type.page,
+            totalPages = type.totalPages,
+            results = type.results?.map { resultsMapper.fromEntity(it) },
+            totalResults = type.totalResults
+        )
+    }
+
+    override fun toEntity(type: MoviesPopular): MoviesPopularEntity {
         return MoviesPopularEntity(
             page = type.page,
             totalPages = type.totalPages,
-            results = type.results?.map { resultsMapper.fromRemote(it) },
+            results = type.results?.map { resultsMapper.toEntity(it) },
             totalResults = type.totalResults
         )
     }
