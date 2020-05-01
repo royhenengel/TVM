@@ -1,10 +1,8 @@
-package com.example.tvm.remote.movie.mapper
+package com.example.tvm.data.movie.mapper
 
-import com.example.tvm.data.model.MoviesPopularEntity
-import com.example.tvm.data.model.ResultsEntity
-import com.example.tvm.remote.mapper.EntityMapper
-import com.example.tvm.remote.movie.model.MoviesPopularModel
-import com.example.tvm.remote.movie.model.ResultsModel
+import com.example.tvm.data.mapper.Mapper
+import com.example.tvm.data.movie.model.MoviesPopularEntity
+import com.example.tvm.domain.interactor.movie.model.MoviesPopular
 import javax.inject.Inject
 
 class MoviesPopularMapper @Inject constructor(

@@ -1,4 +1,4 @@
-package com.example.tvm.data.model
+package com.example.tvm.data.movie.model
 
 data class ResultsEntity(
 	val overview: String?,
@@ -6,7 +6,7 @@ data class ResultsEntity(
 	val originalTitle: String?,
 	val video: Boolean?,
 	val title: String?,
-	val genreIds: List<Int?>?,
+	val genreIds: List<Int>?,
 	val posterPath: String?,
 	val backdropPath: String?,
 	val releaseDate: String?,

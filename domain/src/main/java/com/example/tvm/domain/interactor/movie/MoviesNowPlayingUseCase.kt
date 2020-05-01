@@ -1,4 +1,4 @@
-package com.example.tvm.domain.interactor
+package com.example.tvm.domain.interactor.movie
 
 import com.example.tvm.base.result.Result
 import com.example.tvm.domain.interactor.movie.model.MoviesNowPlaying
