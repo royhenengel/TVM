@@ -1,13 +1,17 @@
 package com.example.tvm.remote.movie.mapper
 
+import com.example.tvm.data.movie.model.DatesEntity
 import com.example.tvm.data.movie.model.MoviesUpcomingEntity
+import com.example.tvm.data.movie.model.ResultsEntity
 import com.example.tvm.remote.mapper.EntityMapper
+import com.example.tvm.remote.movie.model.DatesModel
 import com.example.tvm.remote.movie.model.MoviesUpcomingModel
+import com.example.tvm.remote.movie.model.ResultsModel
 import javax.inject.Inject
 
-class EntityMoviesUpcomingMapper @Inject constructor(
-    private val entityDatesMapper: EntityDatesMapper,
-    private val entityResultsMapper: EntityResultsMapper
+class EntityMoviesUpcomingMapper(
+    private val entityDatesMapper: EntityMapper<DatesModel, DatesEntity>,
+    private val entityResultsMapper: EntityMapper<ResultsModel, ResultsEntity>
 ) : EntityMapper<MoviesUpcomingModel, MoviesUpcomingEntity> {
 
     override fun fromRemote(type: MoviesUpcomingModel): MoviesUpcomingEntity {

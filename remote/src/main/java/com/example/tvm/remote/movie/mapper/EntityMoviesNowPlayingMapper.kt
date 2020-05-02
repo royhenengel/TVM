@@ -1,13 +1,16 @@
 package com.example.tvm.remote.movie.mapper
 
+import com.example.tvm.data.movie.model.DatesEntity
 import com.example.tvm.data.movie.model.MoviesNowPlayingEntity
+import com.example.tvm.data.movie.model.ResultsEntity
 import com.example.tvm.remote.mapper.EntityMapper
+import com.example.tvm.remote.movie.model.DatesModel
 import com.example.tvm.remote.movie.model.MoviesNowPlayingModel
-import javax.inject.Inject
+import com.example.tvm.remote.movie.model.ResultsModel
 
-class EntityMoviesNowPlayingMapper @Inject constructor(
-    private val entityDatesMapper: EntityDatesMapper, // TODO Inject interface instead of concrete impl
-    private val entityResultsMapper: EntityResultsMapper // TODO Inject interface instead of concrete impl
+class EntityMoviesNowPlayingMapper(
+    private val entityDatesMapper: EntityMapper<DatesModel, DatesEntity>,
+    private val entityResultsMapper: EntityMapper<ResultsModel, ResultsEntity>
 ) : EntityMapper<MoviesNowPlayingModel, MoviesNowPlayingEntity> {
 
     override fun fromRemote(type: MoviesNowPlayingModel): MoviesNowPlayingEntity {
@@ -19,4 +22,5 @@ class EntityMoviesNowPlayingMapper @Inject constructor(
             totalResults = type.totalResults
         )
     }
+
 }

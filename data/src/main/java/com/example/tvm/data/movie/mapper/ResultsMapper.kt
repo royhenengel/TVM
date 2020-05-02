@@ -3,9 +3,8 @@ package com.example.tvm.data.movie.mapper
 import com.example.tvm.data.mapper.Mapper
 import com.example.tvm.data.movie.model.ResultsEntity
 import com.example.tvm.domain.interactor.movie.model.Results
-import javax.inject.Inject
 
-class ResultsMapper @Inject constructor() : Mapper<ResultsEntity, Results> {
+class ResultsMapper : Mapper<ResultsEntity, Results> {
 
     override fun fromEntity(type: ResultsEntity): Results {
         return Results(

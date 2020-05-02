@@ -5,7 +5,7 @@ import com.example.tvm.data.movie.model.GenreEntity
 import com.example.tvm.domain.interactor.movie.model.Genre
 import javax.inject.Inject
 
-class GenreMapper @Inject constructor() : Mapper<GenreEntity, Genre> {
+class GenreMapper : Mapper<GenreEntity, Genre> {
 
     override fun fromEntity(type: GenreEntity): Genre {
         return Genre(
