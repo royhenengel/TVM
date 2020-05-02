@@ -2,11 +2,12 @@ package com.example.tvm.data.movie.mapper
 
 import com.example.tvm.data.mapper.Mapper
 import com.example.tvm.data.movie.model.MoviesPopularEntity
+import com.example.tvm.data.movie.model.ResultsEntity
 import com.example.tvm.domain.interactor.movie.model.MoviesPopular
-import javax.inject.Inject
+import com.example.tvm.domain.interactor.movie.model.Results
 
-class MoviesPopularMapper @Inject constructor(
-    private val resultsMapper: ResultsMapper
+class MoviesPopularMapper(
+    private val resultsMapper: Mapper<ResultsEntity, Results>
 ) : Mapper<MoviesPopularEntity, MoviesPopular> {
 
     override fun fromEntity(type: MoviesPopularEntity): MoviesPopular {

@@ -3,9 +3,8 @@ package com.example.tvm.remote.movie.mapper
 import com.example.tvm.data.movie.model.ResultsEntity
 import com.example.tvm.remote.mapper.EntityMapper
 import com.example.tvm.remote.movie.model.ResultsModel
-import javax.inject.Inject
 
-class EntityResultsMapper @Inject constructor() : EntityMapper<ResultsModel, ResultsEntity> {
+class EntityResultsMapper : EntityMapper<ResultsModel, ResultsEntity> {
 
     override fun fromRemote(type: ResultsModel): ResultsEntity {
         return ResultsEntity(

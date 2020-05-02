@@ -1,12 +1,13 @@
 package com.example.tvm.remote.movie.mapper
 
+import com.example.tvm.data.movie.model.GenreEntity
 import com.example.tvm.data.movie.model.MoviesLatestEntity
 import com.example.tvm.remote.mapper.EntityMapper
+import com.example.tvm.remote.movie.model.GenreModel
 import com.example.tvm.remote.movie.model.MoviesLatestModel
-import javax.inject.Inject
 
-class EntityMoviesLatestMapper @Inject constructor(
-    private val entityGenreMapper: EntityGenreMapper // TODO Inject interface instead of concrete impl
+class EntityMoviesLatestMapper(
+    private val entityGenreMapper: EntityMapper<GenreModel, GenreEntity>
 ) : EntityMapper<MoviesLatestModel, MoviesLatestEntity> {
 
     override fun fromRemote(type: MoviesLatestModel): MoviesLatestEntity {

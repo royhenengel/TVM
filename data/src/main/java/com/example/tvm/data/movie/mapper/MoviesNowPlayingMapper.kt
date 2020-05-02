@@ -1,13 +1,16 @@
 package com.example.tvm.data.movie.mapper
 
 import com.example.tvm.data.mapper.Mapper
+import com.example.tvm.data.movie.model.DatesEntity
 import com.example.tvm.data.movie.model.MoviesNowPlayingEntity
+import com.example.tvm.data.movie.model.ResultsEntity
+import com.example.tvm.domain.interactor.movie.model.Dates
 import com.example.tvm.domain.interactor.movie.model.MoviesNowPlaying
-import javax.inject.Inject
+import com.example.tvm.domain.interactor.movie.model.Results
 
-class MoviesNowPlayingMapper @Inject constructor(
-    private val datesMapper: DatesMapper, // TODO Inject interface instead of concrete impl
-    private val resultsMapper: ResultsMapper // TODO Inject interface instead of concrete impl
+class MoviesNowPlayingMapper(
+    private val datesMapper: Mapper<DatesEntity, Dates>,
+    private val resultsMapper: Mapper<ResultsEntity, Results>
 ) : Mapper<MoviesNowPlayingEntity, MoviesNowPlaying> {
 
     override fun fromEntity(type: MoviesNowPlayingEntity): MoviesNowPlaying {

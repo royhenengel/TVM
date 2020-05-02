@@ -5,25 +5,25 @@ import com.example.tvm.base.result.Result
 import com.example.tvm.data.movie.model.*
 import com.example.tvm.data.movie.repository.MoviesRemote
 import com.example.tvm.remote.config.RemoteConfig
-import com.example.tvm.remote.module.BindsModule
-import com.example.tvm.remote.movie.mapper.*
+import com.example.tvm.remote.mapper.EntityMapper
+import com.example.tvm.remote.module.RemoteBindsModule
+import com.example.tvm.remote.movie.model.*
 import com.example.tvm.remote.movie.service.ServiceMovies
-import javax.inject.Inject
 import javax.inject.Named
 
-class MoviesRemoteImpl @Inject constructor(
-    @Named(BindsModule.CONFIG_REMOTE_TMDB) private val remoteConfig: RemoteConfig,
+class MoviesRemoteImpl (
+    @Named(RemoteBindsModule.CONFIG_REMOTE_TMDB) private val remoteConfig: RemoteConfig,
     private val logger: Logger,
     private val service: ServiceMovies,
-    private val latestEntityMoviesMapper: EntityMoviesLatestMapper, // TODO Inject interface instead of concrete impl
-    private val nowPlayingEntityMoviesMapper: EntityMoviesNowPlayingMapper, // TODO Inject interface instead of concrete impl
-    private val popularEntityMoviesMapper: EntityMoviesPopularMapper, // TODO Inject interface instead of concrete impl
-    private val topRatedEntityMoviesMapper: EntityMoviesTopRatedMapper, // TODO Inject interface instead of concrete impl
-    private val upComingEntityMoviesMapper: EntityMoviesUpcomingMapper // TODO Inject interface instead of concrete impl
+    private val latestEntityMoviesMapper: EntityMapper<MoviesLatestModel, MoviesLatestEntity>,
+    private val nowPlayingEntityMoviesMapper: EntityMapper<MoviesNowPlayingModel, MoviesNowPlayingEntity>,
+    private val popularEntityMoviesMapper: EntityMapper<MoviesPopularModel, MoviesPopularEntity>,
+    private val topRatedEntityMoviesMapper: EntityMapper<MoviesTopRatedModel, MoviesTopRatedEntity>,
+    private val upComingEntityMoviesMapper: EntityMapper<MoviesUpcomingModel, MoviesUpcomingEntity>
 ) : MoviesRemote {
 
     private companion object {
-        private const val MESSAGE_GENERAL_ERROR = "Error getting movies from the API"
+        private const val MESSAGE_GENERAL_ERROR = "Movies API error"
     }
 
     override suspend fun latest(
