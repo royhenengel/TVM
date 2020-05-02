@@ -1,11 +1,9 @@
 package com.example.tvm.data.movie.source
 
-import com.example.tvm.data.model.*
 import com.example.tvm.data.movie.repository.MoviesDataStore
 import com.example.tvm.data.movie.repository.MoviesRemote
 import com.example.tvm.base.result.Result
-import com.example.tvm.data.model.MoviesLatestEntity
-import com.example.tvm.data.model.MoviesNowPlayingEntity
+import com.example.tvm.data.movie.model.*
 import javax.inject.Inject
 
 class MoviesRemoteDataSource @Inject constructor(

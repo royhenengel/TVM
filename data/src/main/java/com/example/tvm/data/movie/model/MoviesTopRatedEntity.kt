@@ -1,4 +1,4 @@
-package com.example.tvm.data.model
+package com.example.tvm.data.movie.model
 
 data class MoviesTopRatedEntity(
 	val page: Int?,

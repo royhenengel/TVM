@@ -1,7 +1,7 @@
 package com.example.tvm.domain.component
 
 import com.example.tvm.base.component.BaseComponent
-import com.example.tvm.domain.interactor.UseCase
+import com.example.tvm.domain.interactor.movie.MoviesNowPlayingUseCase
 import com.example.tvm.domain.module.DomainModule
 import dagger.Component
 
@@ -14,7 +14,7 @@ import dagger.Component
 )
 interface DomainComponent {
 
-    fun provideUseCase(): UseCase
+    fun provideUseCase(): MoviesNowPlayingUseCase
 
     @Component.Factory
     interface Factory {

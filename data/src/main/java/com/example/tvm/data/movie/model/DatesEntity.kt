@@ -1,4 +1,4 @@
-package com.example.tvm.data.model
+package com.example.tvm.data.movie.model
 
 data class DatesEntity(
 	val maximum: String?,
