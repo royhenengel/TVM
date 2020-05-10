@@ -21,7 +21,7 @@ interface MoviesDataStore {
     suspend fun upcoming(language: String, page: Int): Result<MoviesUpcomingEntity?>
 
     @Throws(UnsupportedOperationException::class)
-    suspend fun details(movieId: Int, language: String)
+    suspend fun details(movieId: Int, language: String): Result<MovieDetailsEntity?>
 
     @Throws(UnsupportedOperationException::class)
     suspend fun cast(movieId: Int, language: String)

@@ -15,7 +15,7 @@ interface MoviesRepository {
 
     suspend fun upcoming(language: String, page: Int): Result<MoviesUpcoming?>
 
-    suspend fun details(movieId: Int, language: String)
+    suspend fun details(movieId: Int, language: String): Result<MovieDetails?>
 
     suspend fun cast(movieId: Int, language: String)
 

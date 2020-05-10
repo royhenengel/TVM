@@ -19,7 +19,8 @@ class MoviesRemoteImpl (
     private val nowPlayingEntityMoviesMapper: EntityMapper<MoviesNowPlayingModel, MoviesNowPlayingEntity>,
     private val popularEntityMoviesMapper: EntityMapper<MoviesPopularModel, MoviesPopularEntity>,
     private val topRatedEntityMoviesMapper: EntityMapper<MoviesTopRatedModel, MoviesTopRatedEntity>,
-    private val upComingEntityMoviesMapper: EntityMapper<MoviesUpcomingModel, MoviesUpcomingEntity>
+    private val upComingEntityMoviesMapper: EntityMapper<MoviesUpcomingModel, MoviesUpcomingEntity>,
+    private val movieDetailsEntityMapper: EntityMapper<MovieDetailsModel, MovieDetailsEntity>
 ) : MoviesRemote {
 
     private companion object {
@@ -166,9 +167,32 @@ class MoviesRemoteImpl (
         }
     }
 
-    @Throws(UnsupportedOperationException::class)
-    override suspend fun details(movieId: Int, language: String) {
-        throw UnsupportedOperationException()
+    override suspend fun details(
+        movieId: Int,
+        language: String
+    ): Result<MovieDetailsEntity?> {
+        return try {
+            val response = service.details(
+                key = remoteConfig.apiKey(),
+                language = language,
+                movieId = movieId
+            )
+
+            val body = response.body()
+            when {
+                response.isSuccessful -> Result.Success(
+                    body?.let { movieDetailsEntityMapper.fromRemote(it) }
+                )
+
+                else -> Result.Error(
+                    Exception(MESSAGE_GENERAL_ERROR)
+                )
+            }
+        } catch (e: Exception) {
+            logger.e(e)
+
+            Result.Error(e)
+        }
     }
 
     @Throws(UnsupportedOperationException::class)
