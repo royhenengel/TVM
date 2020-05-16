@@ -14,7 +14,8 @@ class MoviesRepositoryImpl @Inject constructor(
     private val nowPlayingMoviesMapper: Mapper<MoviesNowPlayingEntity, MoviesNowPlaying>,
     private val popularMoviesMapper: Mapper<MoviesPopularEntity, MoviesPopular>,
     private val topRatedMoviesMapper: Mapper<MoviesTopRatedEntity, MoviesTopRated>,
-    private val upComingMoviesMapper: Mapper<MoviesUpcomingEntity, MoviesUpcoming>
+    private val upComingMoviesMapper: Mapper<MoviesUpcomingEntity, MoviesUpcoming>,
+    private val movieDetailsMapper: Mapper<MovieDetailsEntity, MovieDetails>
 ) : MoviesRepository {
 
     override suspend fun latest(language: String, page: Int): Result<MoviesLatest?> {
@@ -112,8 +113,23 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun details(movieId: Int, language: String) {
-        TODO("not implemented")
+    override suspend fun details(movieId: Int, language: String): Result<MovieDetails?> {
+        return try {
+            val result = dataStoreFactory.remote().details( // todo Fix access to cache impl from remote interface
+                language = language,
+                movieId = movieId
+            )
+
+            when(result) {
+                is Result.Success -> Result.Success(
+                    data = result.data?.let { movieDetailsMapper.fromEntity(it) }
+                )
+
+                is Result.Error -> Result.Error(result.exception)
+            }
+        } catch (e: Exception) {
+            Result.Error(e)
+        }
     }
 
     override suspend fun cast(movieId: Int, language: String) {

@@ -1,11 +1,7 @@
 package com.example.tvm.data.movie.repository
 
 import com.example.tvm.base.result.Result
-import com.example.tvm.data.movie.model.MoviesLatestEntity
-import com.example.tvm.data.movie.model.MoviesNowPlayingEntity
-import com.example.tvm.data.movie.model.MoviesPopularEntity
-import com.example.tvm.data.movie.model.MoviesTopRatedEntity
-import com.example.tvm.data.movie.model.MoviesUpcomingEntity
+import com.example.tvm.data.movie.model.*
 
 interface MoviesRemote {
 
@@ -19,8 +15,7 @@ interface MoviesRemote {
 
     suspend fun upcoming(language: String, page: Int): Result<MoviesUpcomingEntity?>
 
-    @Throws(UnsupportedOperationException::class)
-    suspend fun details(movieId: Int, language: String)
+    suspend fun details(movieId: Int, language: String): Result<MovieDetailsEntity?>
 
     @Throws(UnsupportedOperationException::class)
     suspend fun cast(movieId: Int, language: String)

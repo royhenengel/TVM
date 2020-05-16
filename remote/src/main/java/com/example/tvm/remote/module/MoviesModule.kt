@@ -11,7 +11,9 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 
-@Module
+@Module(includes = [
+    RemoteMapperModule::class
+])
 object MoviesModule {
 
     @JvmStatic
@@ -30,7 +32,8 @@ object MoviesModule {
         nowPlayingMoviesMapper: EntityMoviesNowPlayingMapper,
         popularMoviesMapper: EntityMoviesPopularMapper,
         topRatedMoviesMapper: EntityMoviesTopRatedMapper,
-        upComingMoviesMapper: EntityMoviesUpcomingMapper
+        upComingMoviesMapper: EntityMoviesUpcomingMapper,
+        movieDetailsMapper: EntityMovieDetailsMapper
     ): MoviesRemote = MoviesRemoteImpl(
         logger = logger,
         remoteConfig = remoteConfig,
@@ -39,63 +42,8 @@ object MoviesModule {
         nowPlayingEntityMoviesMapper = nowPlayingMoviesMapper,
         popularEntityMoviesMapper = popularMoviesMapper,
         upComingEntityMoviesMapper = upComingMoviesMapper,
-        topRatedEntityMoviesMapper = topRatedMoviesMapper
+        topRatedEntityMoviesMapper = topRatedMoviesMapper,
+        movieDetailsEntityMapper = movieDetailsMapper
     )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityMoviesLatestMapper(
-        entityGenreMapper: EntityGenreMapper
-    ) = EntityMoviesLatestMapper(
-        entityGenreMapper = entityGenreMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityMoviesNowPlayingMapper(
-        entityDatesMapper: EntityDatesMapper,
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesNowPlayingMapper(
-        entityDatesMapper = entityDatesMapper,
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityMoviesPopularMapper(
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesPopularMapper(
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityMoviesTopRatedMapper(
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesTopRatedMapper(
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesUpcomingMapper(
-        entityDatesMapper: EntityDatesMapper,
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesUpcomingMapper(
-        entityDatesMapper = entityDatesMapper,
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityResultsMapper() = EntityResultsMapper()
-
-    @JvmStatic
-    @Provides
-    fun provideEntityGenreMapper() = EntityGenreMapper()
-
-    @JvmStatic
-    @Provides
-    fun provideEntityDatesMapper() = EntityDatesMapper()
 
 }

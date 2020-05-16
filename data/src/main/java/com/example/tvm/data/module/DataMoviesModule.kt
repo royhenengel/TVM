@@ -7,7 +7,9 @@ import com.example.tvm.domain.repository.MoviesRepository
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(includes = [
+    DataMoviesMapperModule::class
+])
 object DataMoviesModule {
 
     @JvmStatic
@@ -18,68 +20,16 @@ object DataMoviesModule {
         nowPlayingMoviesMapper: MoviesNowPlayingMapper,
         popularMoviesMapper: MoviesPopularMapper,
         topRatedMoviesMapper: MoviesTopRatedMapper,
-        upComingMoviesMapper: MoviesUpcomingMapper
+        upComingMoviesMapper: MoviesUpcomingMapper,
+        movieDetailsMapper: MovieDetailsMapper
     ): MoviesRepository = MoviesRepositoryImpl(
         dataStoreFactory = dataStoreFactory,
         latestMoviesMapper = latestMoviesMapper,
         nowPlayingMoviesMapper = nowPlayingMoviesMapper,
         popularMoviesMapper = popularMoviesMapper,
         topRatedMoviesMapper = topRatedMoviesMapper,
-        upComingMoviesMapper = upComingMoviesMapper
+        upComingMoviesMapper = upComingMoviesMapper,
+        movieDetailsMapper = movieDetailsMapper
     )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesLatestMapper(
-        genreMapper: GenreMapper
-    ) = MoviesLatestMapper(genreMapper = genreMapper)
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesNowPlayingMapper(
-        datesMapper: DatesMapper,
-        resultsMapper: ResultsMapper
-    ) = MoviesNowPlayingMapper(
-        datesMapper = datesMapper,
-        resultsMapper = resultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesPopularMapper(
-        resultsMapper: ResultsMapper
-    ) = MoviesPopularMapper(
-        resultsMapper = resultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesTopRatedMapper(
-        resultsMapper: ResultsMapper
-    ) = MoviesTopRatedMapper(
-        resultsMapper = resultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesUpcomingMapper(
-        datesMapper: DatesMapper,
-        resultsMapper: ResultsMapper
-    ) = MoviesUpcomingMapper(
-        datesMapper = datesMapper,
-        resultsMapper = resultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideResultsMapper() = ResultsMapper()
-
-    @JvmStatic
-    @Provides
-    fun provideGenreMapper() = GenreMapper()
-
-    @JvmStatic
-    @Provides
-    fun provideDatesMapper() = DatesMapper()
 
 }

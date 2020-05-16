@@ -41,8 +41,10 @@ class MoviesCacheDataSource @Inject constructor(
     ): Result<MoviesUpcomingEntity?> = throw UnsupportedOperationException()
 
     @Throws(UnsupportedOperationException::class)
-    override suspend fun details(movieId: Int,  language: String) =
-        throw UnsupportedOperationException()
+    override suspend fun details(
+        movieId: Int,
+        language: String
+    ): Result<MovieDetailsEntity?> = throw UnsupportedOperationException()
 
     @Throws(UnsupportedOperationException::class)
     override suspend fun cast(movieId: Int,  language: String) =

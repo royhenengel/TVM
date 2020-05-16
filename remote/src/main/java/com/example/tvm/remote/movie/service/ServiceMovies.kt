@@ -9,6 +9,14 @@ import retrofit2.http.Query
 
 interface ServiceMovies {
 
+    companion object {
+        private const val PATH_ID = "id"
+
+        private const val QUERY_API_KEY = "api_key"
+        private const val QUERY_LANGUAGE = "language"
+        private const val QUERY_PAGE = "page"
+    }
+
     @GET("3/movie/latest")
     fun latest(
         @Query(QUERY_API_KEY) key: String,
@@ -49,7 +57,7 @@ interface ServiceMovies {
         @Path(PATH_ID, encoded = true) movieId: Int,
         @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String
-    ): Response<ResponseBody> // TODO("Implement model")
+    ): Response<MovieDetailsModel>
 
     @GET("3/movie/{$PATH_ID}/casts")
     fun cast(
@@ -58,11 +66,4 @@ interface ServiceMovies {
         @Query(QUERY_LANGUAGE) language: String
     ): Response<ResponseBody> // TODO("Implement model")
 
-    companion object {
-        private const val PATH_ID = "id"
-
-        private const val QUERY_API_KEY = "api_key"
-        private const val QUERY_LANGUAGE = "language"
-        private const val QUERY_PAGE = "page"
-    }
 }
