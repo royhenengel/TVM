@@ -1,13 +1,13 @@
 package com.example.tvm.remote.movie.mapper
 
-import com.example.tvm.data.movie.model.ResultsEntity
+import com.example.tvm.data.movie.model.MovieEntity
 import com.example.tvm.remote.mapper.EntityMapper
-import com.example.tvm.remote.movie.model.ResultsModel
+import com.example.tvm.remote.movie.model.MovieModel
 
-class EntityResultsMapper : EntityMapper<ResultsModel, ResultsEntity> {
+class EntityResultsMapper : EntityMapper<MovieModel, MovieEntity> {
 
-    override fun fromRemote(type: ResultsModel): ResultsEntity {
-        return ResultsEntity(
+    override fun fromRemote(type: MovieModel): MovieEntity {
+        return MovieEntity(
             overview = type.overview,
             originalLanguage = type.originalLanguage,
             originalTitle = type.originalTitle,

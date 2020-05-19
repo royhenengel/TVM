@@ -10,7 +10,7 @@ import com.example.tvm.remote.movie.model.MoviesUpcomingModel
 
 class EntityMoviesUpcomingMapper(
     private val entityDatesMapper: EntityMapper<DatesModel, DatesEntity>,
-    private val entityResultsMapper: EntityMapper<ResultsModel, ResultsEntity>
+    private val entityMovieMapper: EntityMapper<MovieModel, MovieEntity>
 ) : EntityMapper<MoviesUpcomingModel, MoviesUpcomingEntity> {
 
     override fun fromRemote(type: MoviesUpcomingModel): MoviesUpcomingEntity {
@@ -18,7 +18,7 @@ class EntityMoviesUpcomingMapper(
             dates = type.dates?.let { entityDatesMapper.fromRemote(it) },
             page = type.page,
             totalPages = type.totalPages,
-            results = type.results?.map { entityResultsMapper.fromRemote(it) },
+            movies = type.movies?.map { entityMovieMapper.fromRemote(it) },
             totalResults = type.totalResults
         )
     }

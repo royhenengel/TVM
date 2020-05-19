@@ -1,6 +1,6 @@
-package com.example.tvm.data.movie.model
+package com.example.tvm.domain.interactor.movie.model
 
-data class ResultsEntity(
+data class Movie(
 	val overview: String?,
 	val originalLanguage: String?,
 	val originalTitle: String?,

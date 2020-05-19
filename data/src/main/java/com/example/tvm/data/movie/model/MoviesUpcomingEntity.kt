@@ -4,6 +4,6 @@ data class MoviesUpcomingEntity(
     val dates: DatesEntity?,
     val page: Int?,
     val totalPages: Int?,
-    val results: List<ResultsEntity>?,
+    val movies: List<MovieEntity>?,
     val totalResults: Int?
 )
