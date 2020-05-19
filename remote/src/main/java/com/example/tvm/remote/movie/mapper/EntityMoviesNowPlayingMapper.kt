@@ -5,12 +5,12 @@ import com.example.tvm.data.movie.model.MoviesNowPlayingEntity
 import com.example.tvm.data.movie.model.MovieEntity
 import com.example.tvm.remote.mapper.EntityMapper
 import com.example.tvm.remote.movie.model.DatesModel
+import com.example.tvm.remote.movie.model.MovieModel
 import com.example.tvm.remote.movie.model.MoviesNowPlayingModel
-import com.example.tvm.remote.movie.model.ResultsModel
 
 class EntityMoviesNowPlayingMapper(
     private val entityDatesMapper: EntityMapper<DatesModel, DatesEntity>,
-    private val entityResultsMapper: EntityMapper<ResultsModel, ResultsEntity>
+    private val entityMovieMapper: EntityMapper<MovieModel, MovieEntity>
 ) : EntityMapper<MoviesNowPlayingModel, MoviesNowPlayingEntity> {
 
     override fun fromRemote(type: MoviesNowPlayingModel): MoviesNowPlayingEntity {
