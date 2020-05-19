@@ -14,7 +14,7 @@ data class MoviesUpcomingModel(
 	val totalPages: Int? = null,
 
 	@SerializedName("results")
-	val results: List<ResultsModel>? = null,
+	val movies: List<MovieModel>? = null,
 
 	@SerializedName("total_results")
 	val totalResults: Int? = null

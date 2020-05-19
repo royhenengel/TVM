@@ -3,8 +3,8 @@ package com.example.tvm.remote.movie.mapper
 import com.example.tvm.data.movie.model.MoviesPopularEntity
 import com.example.tvm.data.movie.model.ResultsEntity
 import com.example.tvm.remote.mapper.EntityMapper
+import com.example.tvm.remote.movie.model.MovieModel
 import com.example.tvm.remote.movie.model.MoviesPopularModel
-import com.example.tvm.remote.movie.model.ResultsModel
 
 class EntityMoviesPopularMapper(
     private val entityResultsMapper: EntityMapper<ResultsModel, ResultsEntity>
