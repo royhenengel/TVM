@@ -30,13 +30,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':base')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin"
 
-    // DI
+    implementation libs.coroutines
+
     implementation di.implementations.values()
     kapt di.annotationProcessors.values()
-
-    implementation project(':base')
 
 }
