@@ -29,7 +29,6 @@ class MoviesRemoteImpl (
     ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.latest(
-                key = remoteConfig.apiKey(),
                 language = language,
                 page = page
             )
@@ -57,7 +56,6 @@ class MoviesRemoteImpl (
     ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.nowPlaying(
-                key = remoteConfig.apiKey(),
                 language = language,
                 page = page
             )
@@ -85,7 +83,6 @@ class MoviesRemoteImpl (
     ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.popular(
-                key = remoteConfig.apiKey(),
                 language = language,
                 page = page
             )
@@ -113,7 +110,6 @@ class MoviesRemoteImpl (
     ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.topRated(
-                key = remoteConfig.apiKey(),
                 language = language,
                 page = page
             )
@@ -141,7 +137,6 @@ class MoviesRemoteImpl (
     ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.upcoming(
-                key = remoteConfig.apiKey(),
                 language = language,
                 page = page
             )
@@ -169,7 +164,6 @@ class MoviesRemoteImpl (
     ): Result<MovieDetailsEntity?> {
         return try {
             val response = service.details(
-                key = remoteConfig.apiKey(),
                 language = language,
                 movieId = movieId
             )
