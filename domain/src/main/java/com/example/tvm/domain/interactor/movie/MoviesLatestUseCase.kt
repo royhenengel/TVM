@@ -8,10 +8,20 @@ import javax.inject.Inject
 class MoviesLatestUseCase @Inject constructor(
     private val moviesRepository: MoviesRepository
 ) {
-    suspend fun latestMovies(): Result<MoviesResults?> {
+
+    private companion object {
+        private const val DEFAULT_LANGUAGE = "en-US"
+        private const val DEFAULT_PAGE = 1
+    }
+
+    suspend fun latestMovies(
+        language: String = DEFAULT_LANGUAGE,
+        page: Int = DEFAULT_PAGE
+    ): Result<MoviesResults?> {
         return moviesRepository.latest(
-            language = TODO(),
-            page = TODO()
+            language = language,
+            page = page
         )
     }
+
 }
