@@ -6,4 +6,5 @@ import com.example.tvm.domain.repository.MoviesRepository
 interface DataBridgeComponent {
 
     fun provideMoviesRepository(): MoviesRepository
+
 }

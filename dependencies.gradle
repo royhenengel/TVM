@@ -38,8 +38,8 @@ ext {
             retrofit                 : "com.squareup.retrofit2:retrofit:$retrofit",
 
             // Adapters
-            retrofitGsonConverter    : "com.squareup.retrofit2:converter-gson:$retrofit",
-            kotlinCoroutinesAdapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutinesAdapter",
+            gsonConverter    : "com.squareup.retrofit2:converter-gson:$retrofit",
+            coroutinesAdapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutinesAdapter",
 
             // OkHttp
             okHttp3                  : "com.squareup.okhttp3:okhttp:$okhttp",
