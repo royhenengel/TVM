@@ -12,57 +12,49 @@ interface ServiceMovies {
     companion object {
         private const val PATH_ID = "id"
 
-        private const val QUERY_API_KEY = "api_key"
         private const val QUERY_LANGUAGE = "language"
         private const val QUERY_PAGE = "page"
     }
 
     @GET("3/movie/latest")
-    fun latest(
-        @Query(QUERY_API_KEY) key: String,
+    suspend fun latest(
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
     ): Response<MoviesResultsModel>
 
     @GET("3/movie/now_playing")
-    fun nowPlaying(
-        @Query(QUERY_API_KEY) key: String,
+    suspend fun nowPlaying(
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
     ): Response<MoviesResultsModel>
 
     @GET("3/movie/popular")
-    fun popular(
-        @Query(QUERY_API_KEY) key: String,
+    suspend fun popular(
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
     ): Response<MoviesResultsModel>
 
     @GET("3/movie/top_rated")
-    fun topRated(
-        @Query(QUERY_API_KEY) key: String,
+    suspend fun topRated(
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
     ): Response<MoviesResultsModel>
 
     @GET("3/movie/upcoming")
-    fun upcoming(
-        @Query(QUERY_API_KEY) key: String,
+    suspend fun upcoming(
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
     ): Response<MoviesResultsModel>
 
     @GET("3/movie/{$PATH_ID}")
-    fun details(
+    suspend fun details(
         @Path(PATH_ID, encoded = true) movieId: Int,
-        @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String
     ): Response<MovieDetailsModel>
 
     @GET("3/movie/{$PATH_ID}/casts")
     fun cast(
         @Path(PATH_ID, encoded = true) movieId: Int,
-        @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String
     ): Response<ResponseBody> // TODO("Implement model")
 

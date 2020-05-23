@@ -1,6 +1,7 @@
 package com.example.tvm.remote
 
 import com.example.tvm.remote.config.RemoteConfig
+import com.example.tvm.remote.interceptor.CommonQueryInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,6 +22,7 @@ class RetrofitProviderImpl (private val configuration: RemoteConfig):
                         this.addInterceptor(HttpLoggingInterceptor().apply {
                             level = HttpLoggingInterceptor.Level.BODY
                         })
+                        this.addInterceptor(CommonQueryInterceptor(configuration))
                         this.connectTimeout(configuration.timeoutMillisConnection(), TimeUnit.MILLISECONDS)
                         this.readTimeout(configuration.timeoutMillisConnection(), TimeUnit.MILLISECONDS)
                     }
