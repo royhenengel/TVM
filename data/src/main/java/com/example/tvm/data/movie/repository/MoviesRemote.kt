@@ -5,15 +5,15 @@ import com.example.tvm.data.movie.model.*
 
 interface MoviesRemote {
 
-    suspend fun latest(language: String, page: Int): Result<MoviesLatestEntity?>
+    suspend fun latest(language: String, page: Int): Result<MoviesResultsEntity?>
 
-    suspend fun nowPlaying(language: String, page: Int): Result<MoviesNowPlayingEntity?>
+    suspend fun nowPlaying(language: String, page: Int): Result<MoviesResultsEntity?>
 
-    suspend fun popular(language: String, page: Int): Result<MoviesPopularEntity?>
+    suspend fun popular(language: String, page: Int): Result<MoviesResultsEntity?>
 
-    suspend fun topRated(language: String, page: Int): Result<MoviesTopRatedEntity?>
+    suspend fun topRated(language: String, page: Int): Result<MoviesResultsEntity?>
 
-    suspend fun upcoming(language: String, page: Int): Result<MoviesUpcomingEntity?>
+    suspend fun upcoming(language: String, page: Int): Result<MoviesResultsEntity?>
 
     suspend fun details(movieId: Int, language: String): Result<MovieDetailsEntity?>
 

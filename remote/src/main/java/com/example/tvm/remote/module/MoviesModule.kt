@@ -28,21 +28,13 @@ object MoviesModule {
         @Named(RemoteBindsModule.CONFIG_REMOTE_TMDB) remoteConfig: RemoteConfig,
         logger: Logger,
         service: ServiceMovies,
-        latestMoviesMapper: EntityMoviesLatestMapper,
-        nowPlayingMoviesMapper: EntityMoviesNowPlayingMapper,
-        popularMoviesMapper: EntityMoviesPopularMapper,
-        topRatedMoviesMapper: EntityMoviesTopRatedMapper,
-        upComingMoviesMapper: EntityMoviesUpcomingMapper,
+        moviesResultsMapper: EntityMoviesResultsMapper,
         movieDetailsMapper: EntityMovieDetailsMapper
     ): MoviesRemote = MoviesRemoteImpl(
         logger = logger,
         remoteConfig = remoteConfig,
         service = service,
-        latestEntityMoviesMapper = latestMoviesMapper,
-        nowPlayingEntityMoviesMapper = nowPlayingMoviesMapper,
-        popularEntityMoviesMapper = popularMoviesMapper,
-        upComingEntityMoviesMapper = upComingMoviesMapper,
-        topRatedEntityMoviesMapper = topRatedMoviesMapper,
+        moviesResultsMapper = moviesResultsMapper,
         movieDetailsEntityMapper = movieDetailsMapper
     )
 

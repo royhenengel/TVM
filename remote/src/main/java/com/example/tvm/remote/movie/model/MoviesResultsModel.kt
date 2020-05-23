@@ -2,7 +2,7 @@ package com.example.tvm.remote.movie.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MoviesUpcomingModel(
+data class MoviesResultsModel(
 
 	@SerializedName("dates")
 	val dates: DatesModel? = null,
@@ -14,7 +14,7 @@ data class MoviesUpcomingModel(
 	val totalPages: Int? = null,
 
 	@SerializedName("results")
-	val results: List<ResultsModel>? = null,
+	val movies: List<MovieModel>? = null,
 
 	@SerializedName("total_results")
 	val totalResults: Int? = null

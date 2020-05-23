@@ -15,11 +15,7 @@ class MoviesRemoteImpl (
     @Named(RemoteBindsModule.CONFIG_REMOTE_TMDB) private val remoteConfig: RemoteConfig,
     private val logger: Logger,
     private val service: ServiceMovies,
-    private val latestEntityMoviesMapper: EntityMapper<MoviesLatestModel, MoviesLatestEntity>,
-    private val nowPlayingEntityMoviesMapper: EntityMapper<MoviesNowPlayingModel, MoviesNowPlayingEntity>,
-    private val popularEntityMoviesMapper: EntityMapper<MoviesPopularModel, MoviesPopularEntity>,
-    private val topRatedEntityMoviesMapper: EntityMapper<MoviesTopRatedModel, MoviesTopRatedEntity>,
-    private val upComingEntityMoviesMapper: EntityMapper<MoviesUpcomingModel, MoviesUpcomingEntity>,
+    private val moviesResultsMapper: EntityMapper<MoviesResultsModel, MoviesResultsEntity>,
     private val movieDetailsEntityMapper: EntityMapper<MovieDetailsModel, MovieDetailsEntity>
 ) : MoviesRemote {
 
@@ -30,7 +26,7 @@ class MoviesRemoteImpl (
     override suspend fun latest(
         language: String,
         page: Int
-    ): Result<MoviesLatestEntity?> {
+    ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.latest(
                 key = remoteConfig.apiKey(),
@@ -41,7 +37,7 @@ class MoviesRemoteImpl (
             val body = response.body()
             when {
                 response.isSuccessful -> Result.Success(
-                    body?.let { latestEntityMoviesMapper.fromRemote(it) }
+                    body?.let { moviesResultsMapper.fromRemote(it) }
                 )
 
                 else -> Result.Error(
@@ -58,7 +54,7 @@ class MoviesRemoteImpl (
     override suspend fun nowPlaying(
         language: String,
         page: Int
-    ): Result<MoviesNowPlayingEntity?> {
+    ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.nowPlaying(
                 key = remoteConfig.apiKey(),
@@ -69,7 +65,7 @@ class MoviesRemoteImpl (
             val body = response.body()
             when {
                 response.isSuccessful -> Result.Success(
-                    body?.let { nowPlayingEntityMoviesMapper.fromRemote(it) }
+                    body?.let { moviesResultsMapper.fromRemote(it) }
                 )
 
                 else -> Result.Error(
@@ -86,7 +82,7 @@ class MoviesRemoteImpl (
     override suspend fun popular(
         language: String,
         page: Int
-    ): Result<MoviesPopularEntity?> {
+    ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.popular(
                 key = remoteConfig.apiKey(),
@@ -97,7 +93,7 @@ class MoviesRemoteImpl (
             val body = response.body()
             when {
                 response.isSuccessful -> Result.Success(
-                    body?.let { popularEntityMoviesMapper.fromRemote(it) }
+                    body?.let { moviesResultsMapper.fromRemote(it) }
                 )
 
                 else -> Result.Error(
@@ -114,7 +110,7 @@ class MoviesRemoteImpl (
     override suspend fun topRated(
         language: String,
         page: Int
-    ): Result<MoviesTopRatedEntity?> {
+    ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.topRated(
                 key = remoteConfig.apiKey(),
@@ -125,7 +121,7 @@ class MoviesRemoteImpl (
             val body = response.body()
             when {
                 response.isSuccessful -> Result.Success(
-                    body?.let { topRatedEntityMoviesMapper.fromRemote(it) }
+                    body?.let { moviesResultsMapper.fromRemote(it) }
                 )
 
                 else -> Result.Error(
@@ -142,7 +138,7 @@ class MoviesRemoteImpl (
     override suspend fun upcoming(
         language: String,
         page: Int
-    ): Result<MoviesUpcomingEntity?> {
+    ): Result<MoviesResultsEntity?> {
         return try {
             val response = service.upcoming(
                 key = remoteConfig.apiKey(),
@@ -153,7 +149,7 @@ class MoviesRemoteImpl (
             val body = response.body()
             when {
                 response.isSuccessful -> Result.Success(
-                    body?.let { upComingEntityMoviesMapper.fromRemote(it) }
+                    body?.let { moviesResultsMapper.fromRemote(it) }
                 )
 
                 else -> Result.Error(

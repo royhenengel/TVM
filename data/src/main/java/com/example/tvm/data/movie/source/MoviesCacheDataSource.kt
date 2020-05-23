@@ -14,31 +14,31 @@ class MoviesCacheDataSource @Inject constructor(
     override suspend fun latest(
         language: String,
         page: Int
-    ): Result<MoviesLatestEntity?> = throw UnsupportedOperationException()
+    ): Result<MoviesResultsEntity?> = throw UnsupportedOperationException()
 
     @Throws(UnsupportedOperationException::class)
     override suspend fun nowPlaying(
         language: String,
         page: Int
-    ): Result<MoviesNowPlayingEntity?> = throw UnsupportedOperationException()
+    ): Result<MoviesResultsEntity?> = throw UnsupportedOperationException()
 
     @Throws(UnsupportedOperationException::class)
     override suspend fun popular(
         language: String,
         page: Int
-    ): Result<MoviesPopularEntity?> = throw UnsupportedOperationException()
+    ): Result<MoviesResultsEntity?> = throw UnsupportedOperationException()
 
     @Throws(UnsupportedOperationException::class)
     override suspend fun topRated(
         language: String,
         page: Int
-    ): Result<MoviesTopRatedEntity?> = throw UnsupportedOperationException()
+    ): Result<MoviesResultsEntity?> = throw UnsupportedOperationException()
 
     @Throws(UnsupportedOperationException::class)
     override suspend fun upcoming(
         language: String,
         page: Int
-    ): Result<MoviesUpcomingEntity?> = throw UnsupportedOperationException()
+    ): Result<MoviesResultsEntity?> = throw UnsupportedOperationException()
 
     @Throws(UnsupportedOperationException::class)
     override suspend fun details(

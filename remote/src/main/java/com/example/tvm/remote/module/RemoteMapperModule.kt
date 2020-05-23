@@ -9,50 +9,6 @@ object RemoteMapperModule {
 
     @JvmStatic
     @Provides
-    fun provideEntityMoviesLatestMapper(
-        entityGenreMapper: EntityGenreMapper
-    ) = EntityMoviesLatestMapper(
-        entityGenreMapper = entityGenreMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityMoviesNowPlayingMapper(
-        entityDatesMapper: EntityDatesMapper,
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesNowPlayingMapper(
-        entityDatesMapper = entityDatesMapper,
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityMoviesPopularMapper(
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesPopularMapper(
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideEntityMoviesTopRatedMapper(
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesTopRatedMapper(
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesUpcomingMapper(
-        entityDatesMapper: EntityDatesMapper,
-        entityResultsMapper: EntityResultsMapper
-    ) = EntityMoviesUpcomingMapper(
-        entityDatesMapper = entityDatesMapper,
-        entityResultsMapper = entityResultsMapper
-    )
-
-    @JvmStatic
-    @Provides
     fun provideEntityMovieDetailsMapper(
         genreMapper: EntityGenreMapper,
         productionCountriesMapper: EntityProductionCountriesMapper,
@@ -67,7 +23,17 @@ object RemoteMapperModule {
 
     @JvmStatic
     @Provides
-    fun provideEntityResultsMapper() = EntityResultsMapper()
+    fun provideEntityResultsMapper(
+        entityDatesMapper: EntityDatesMapper,
+        entityMovieMapper: EntityMovieMapper
+    ) = EntityMoviesResultsMapper(
+        entityDatesMapper = entityDatesMapper,
+        entityMovieMapper = entityMovieMapper
+    )
+
+    @JvmStatic
+    @Provides
+    fun provideEntityMovieMapper() = EntityMovieMapper()
 
     @JvmStatic
     @Provides

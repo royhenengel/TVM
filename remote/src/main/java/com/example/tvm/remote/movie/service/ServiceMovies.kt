@@ -22,35 +22,35 @@ interface ServiceMovies {
         @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
-    ): Response<MoviesLatestModel>
+    ): Response<MoviesResultsModel>
 
     @GET("3/movie/now_playing")
     fun nowPlaying(
         @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
-    ): Response<MoviesNowPlayingModel>
+    ): Response<MoviesResultsModel>
 
     @GET("3/movie/popular")
     fun popular(
         @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
-    ): Response<MoviesPopularModel>
+    ): Response<MoviesResultsModel>
 
     @GET("3/movie/top_rated")
     fun topRated(
         @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
-    ): Response<MoviesTopRatedModel>
+    ): Response<MoviesResultsModel>
 
     @GET("3/movie/upcoming")
     fun upcoming(
         @Query(QUERY_API_KEY) key: String,
         @Query(QUERY_LANGUAGE) language: String,
         @Query(QUERY_PAGE) page: Int
-    ): Response<MoviesUpcomingModel>
+    ): Response<MoviesResultsModel>
 
     @GET("3/movie/{$PATH_ID}")
     fun details(

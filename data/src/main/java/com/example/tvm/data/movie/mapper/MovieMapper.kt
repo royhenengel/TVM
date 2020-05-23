@@ -1,13 +1,13 @@
 package com.example.tvm.data.movie.mapper
 
 import com.example.tvm.data.mapper.Mapper
-import com.example.tvm.data.movie.model.ResultsEntity
-import com.example.tvm.domain.interactor.movie.model.Results
+import com.example.tvm.data.movie.model.MovieEntity
+import com.example.tvm.domain.interactor.movie.model.Movie
 
-class ResultsMapper : Mapper<ResultsEntity, Results> {
+class MovieMapper : Mapper<MovieEntity, Movie> {
 
-    override fun fromEntity(type: ResultsEntity): Results {
-        return Results(
+    override fun fromEntity(type: MovieEntity): Movie {
+        return Movie(
             overview = type.overview,
             originalLanguage = type.originalLanguage,
             originalTitle = type.originalTitle,
@@ -25,8 +25,8 @@ class ResultsMapper : Mapper<ResultsEntity, Results> {
         )
     }
 
-    override fun toEntity(type: Results): ResultsEntity {
-        return ResultsEntity(
+    override fun toEntity(type: Movie): MovieEntity {
+        return MovieEntity(
             overview = type.overview,
             originalLanguage = type.originalLanguage,
             originalTitle = type.originalTitle,

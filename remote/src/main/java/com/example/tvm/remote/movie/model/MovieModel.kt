@@ -2,7 +2,7 @@ package com.example.tvm.remote.movie.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ResultsModel(
+data class MovieModel(
 
 	@SerializedName("overview")
 	val overview: String? = null,
