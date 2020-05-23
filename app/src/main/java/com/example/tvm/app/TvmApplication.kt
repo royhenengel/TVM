@@ -1,15 +1,18 @@
 package com.example.tvm.app
 
 import android.app.Application
-import com.example.tvm.BuildConfig
 import com.example.tvm.app.component.AppComponent
 import com.example.tvm.app.component.DaggerAppComponent
+import com.example.tvm.app.startup.AppInitializer
 import com.example.tvm.base.component.DaggerBaseComponent
-import timber.log.Timber
+import javax.inject.Inject
 
-class TvmApplication: Application() {
+class TvmApplication : Application() {
 
     private lateinit var appComponent: AppComponent
+
+    @Inject
+    lateinit var appInitializer: AppInitializer
 
     override fun onCreate() {
         super.onCreate()
@@ -17,9 +20,7 @@ class TvmApplication: Application() {
         val baseComponent = DaggerBaseComponent.factory().create(this)
         appComponent = DaggerAppComponent.factory().create(baseComponent).also { it.inject(this) }
 
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
+        appInitializer.discoverAndInit()
     }
 
 }
