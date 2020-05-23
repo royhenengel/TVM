@@ -10,15 +10,11 @@ import javax.inject.Inject
 
 class MoviesRepositoryImpl @Inject constructor(
     private val dataStoreFactory: MoviesDataStoreFactory,
-    private val latestMoviesMapper: Mapper<MoviesLatestEntity, MoviesLatest>,
-    private val nowPlayingMoviesMapper: Mapper<MoviesNowPlayingEntity, MoviesNowPlaying>,
-    private val popularMoviesMapper: Mapper<MoviesPopularEntity, MoviesPopular>,
-    private val topRatedMoviesMapper: Mapper<MoviesTopRatedEntity, MoviesTopRated>,
-    private val upComingMoviesMapper: Mapper<MoviesUpcomingEntity, MoviesUpcoming>,
+    private val moviesResultsMapper: Mapper<MoviesResultsEntity, MoviesResults>,
     private val movieDetailsMapper: Mapper<MovieDetailsEntity, MovieDetails>
 ) : MoviesRepository {
 
-    override suspend fun latest(language: String, page: Int): Result<MoviesLatest?> {
+    override suspend fun latest(language: String, page: Int): Result<MoviesResults?> {
         return try {
             val result = dataStoreFactory.remote().latest(
                 language = language,
@@ -27,7 +23,7 @@ class MoviesRepositoryImpl @Inject constructor(
 
             when(result) {
                 is Result.Success -> Result.Success(
-                    data = result.data?.let { latestMoviesMapper.fromEntity(it) }
+                    data = result.data?.let { moviesResultsMapper.fromEntity(it) }
                 )
 
                 is Result.Error -> Result.Error(result.exception)
@@ -37,7 +33,7 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun nowPlaying(language: String, page: Int): Result<MoviesNowPlaying?> {
+    override suspend fun nowPlaying(language: String, page: Int): Result<MoviesResults?> {
         return try {
             val result = dataStoreFactory.remote().nowPlaying(
                 language = language,
@@ -46,7 +42,7 @@ class MoviesRepositoryImpl @Inject constructor(
 
             when(result) {
                 is Result.Success -> Result.Success(
-                    data = result.data?.let { nowPlayingMoviesMapper.fromEntity(it) }
+                    data = result.data?.let { moviesResultsMapper.fromEntity(it) }
                 )
 
                 is Result.Error -> Result.Error(result.exception)
@@ -56,7 +52,7 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun popular(language: String, page: Int): Result<MoviesPopular?> {
+    override suspend fun popular(language: String, page: Int): Result<MoviesResults?> {
         return try {
             val result = dataStoreFactory.remote().popular(
                 language = language,
@@ -65,7 +61,7 @@ class MoviesRepositoryImpl @Inject constructor(
 
             when(result) {
                 is Result.Success -> Result.Success(
-                    data = result.data?.let { popularMoviesMapper.fromEntity(it) }
+                    data = result.data?.let { moviesResultsMapper.fromEntity(it) }
                 )
 
                 is Result.Error -> Result.Error(result.exception)
@@ -75,7 +71,7 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun topRated(language: String, page: Int): Result<MoviesTopRated?> {
+    override suspend fun topRated(language: String, page: Int): Result<MoviesResults?> {
         return try {
             val result = dataStoreFactory.remote().topRated(
                 language = language,
@@ -84,7 +80,7 @@ class MoviesRepositoryImpl @Inject constructor(
 
             when(result) {
                 is Result.Success -> Result.Success(
-                    data = result.data?.let { topRatedMoviesMapper.fromEntity(it) }
+                    data = result.data?.let { moviesResultsMapper.fromEntity(it) }
                 )
 
                 is Result.Error -> Result.Error(result.exception)
@@ -94,7 +90,7 @@ class MoviesRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun upcoming(language: String, page: Int): Result<MoviesUpcoming?> {
+    override suspend fun upcoming(language: String, page: Int): Result<MoviesResults?> {
         return try {
             val result = dataStoreFactory.remote().upcoming(
                 language = language,
@@ -103,7 +99,7 @@ class MoviesRepositoryImpl @Inject constructor(
 
             when(result) {
                 is Result.Success -> Result.Success(
-                    data = result.data?.let { upComingMoviesMapper.fromEntity(it) }
+                    data = result.data?.let { moviesResultsMapper.fromEntity(it) }
                 )
 
                 is Result.Error -> Result.Error(result.exception)

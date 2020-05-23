@@ -9,42 +9,10 @@ object DataMoviesMapperModule {
 
     @JvmStatic
     @Provides
-    fun provideMoviesLatestMapper(
-        genreMapper: GenreMapper
-    ) = MoviesLatestMapper(genreMapper = genreMapper)
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesNowPlayingMapper(
+    fun provideMoviesResultsMapper(
         datesMapper: DatesMapper,
         movieMapper: MovieMapper
-    ) = MoviesNowPlayingMapper(
-        datesMapper = datesMapper,
-        movieMapper = movieMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesPopularMapper(
-        movieMapper: MovieMapper
-    ) = MoviesPopularMapper(
-        movieMapper = movieMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesTopRatedMapper(
-        movieMapper: MovieMapper
-    ) = MoviesTopRatedMapper(
-        movieMapper = movieMapper
-    )
-
-    @JvmStatic
-    @Provides
-    fun provideMoviesUpcomingMapper(
-        datesMapper: DatesMapper,
-        movieMapper: MovieMapper
-    ) = MoviesUpcomingMapper(
+    ) = MoviesResultsMapper(
         datesMapper = datesMapper,
         movieMapper = movieMapper
     )

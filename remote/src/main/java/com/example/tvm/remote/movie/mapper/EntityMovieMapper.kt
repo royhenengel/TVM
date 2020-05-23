@@ -4,7 +4,7 @@ import com.example.tvm.data.movie.model.MovieEntity
 import com.example.tvm.remote.mapper.EntityMapper
 import com.example.tvm.remote.movie.model.MovieModel
 
-class EntityResultsMapper : EntityMapper<MovieModel, MovieEntity> {
+class EntityMovieMapper : EntityMapper<MovieModel, MovieEntity> {
 
     override fun fromRemote(type: MovieModel): MovieEntity {
         return MovieEntity(

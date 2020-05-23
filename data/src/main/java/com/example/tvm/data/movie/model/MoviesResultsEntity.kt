@@ -1,6 +1,6 @@
 package com.example.tvm.data.movie.model
 
-data class MoviesUpcomingEntity(
+data class MoviesResultsEntity(
     val dates: DatesEntity?,
     val page: Int?,
     val totalPages: Int?,

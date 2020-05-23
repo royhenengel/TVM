@@ -16,19 +16,11 @@ object DataMoviesModule {
     @Provides
     fun bindMoviesRepository(
         dataStoreFactory: MoviesDataStoreFactory,
-        latestMoviesMapper: MoviesLatestMapper,
-        nowPlayingMoviesMapper: MoviesNowPlayingMapper,
-        popularMoviesMapper: MoviesPopularMapper,
-        topRatedMoviesMapper: MoviesTopRatedMapper,
-        upComingMoviesMapper: MoviesUpcomingMapper,
+        moviesResultsMapper: MoviesResultsMapper,
         movieDetailsMapper: MovieDetailsMapper
     ): MoviesRepository = MoviesRepositoryImpl(
         dataStoreFactory = dataStoreFactory,
-        latestMoviesMapper = latestMoviesMapper,
-        nowPlayingMoviesMapper = nowPlayingMoviesMapper,
-        popularMoviesMapper = popularMoviesMapper,
-        topRatedMoviesMapper = topRatedMoviesMapper,
-        upComingMoviesMapper = upComingMoviesMapper,
+        moviesResultsMapper = moviesResultsMapper,
         movieDetailsMapper = movieDetailsMapper
     )
 

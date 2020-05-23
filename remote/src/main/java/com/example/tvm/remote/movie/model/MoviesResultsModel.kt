@@ -2,7 +2,10 @@ package com.example.tvm.remote.movie.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MoviesPopularModel(
+data class MoviesResultsModel(
+
+	@SerializedName("dates")
+	val dates: DatesModel? = null,
 
 	@SerializedName("page")
 	val page: Int? = null,

@@ -13,7 +13,7 @@ class MoviesRemoteDataSource @Inject constructor(
     override suspend fun latest(
         language: String,
         page: Int
-    ): Result<MoviesLatestEntity?> = moviesRemote.latest(
+    ): Result<MoviesResultsEntity?> = moviesRemote.latest(
         page = page,
         language = language
     )
@@ -21,7 +21,7 @@ class MoviesRemoteDataSource @Inject constructor(
     override suspend fun nowPlaying(
         language: String,
         page: Int
-    ): Result<MoviesNowPlayingEntity?> = moviesRemote.nowPlaying(
+    ): Result<MoviesResultsEntity?> = moviesRemote.nowPlaying(
         page = page,
         language = language
     )
@@ -29,7 +29,7 @@ class MoviesRemoteDataSource @Inject constructor(
     override suspend fun popular(
         language: String,
         page: Int
-    ): Result<MoviesPopularEntity?> = moviesRemote.popular(
+    ): Result<MoviesResultsEntity?> = moviesRemote.popular(
         page = page,
         language = language
     )
@@ -37,7 +37,7 @@ class MoviesRemoteDataSource @Inject constructor(
     override suspend fun topRated(
         language: String,
         page: Int
-    ): Result<MoviesTopRatedEntity?> = moviesRemote.topRated(
+    ): Result<MoviesResultsEntity?> = moviesRemote.topRated(
         page = page,
         language = language
     )
@@ -45,7 +45,7 @@ class MoviesRemoteDataSource @Inject constructor(
     override suspend fun upcoming(
         language: String,
         page: Int
-    ): Result<MoviesUpcomingEntity?> = moviesRemote.upcoming(
+    ): Result<MoviesResultsEntity?> = moviesRemote.upcoming(
         page = page,
         language = language
     )

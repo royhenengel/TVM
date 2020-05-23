@@ -5,15 +5,15 @@ import com.example.tvm.domain.interactor.movie.model.*
 
 interface MoviesRepository {
 
-    suspend fun latest(language: String, page: Int): Result<MoviesLatest?>
+    suspend fun latest(language: String, page: Int): Result<MoviesResults?>
 
-    suspend fun nowPlaying(language: String, page: Int): Result<MoviesNowPlaying?>
+    suspend fun nowPlaying(language: String, page: Int): Result<MoviesResults?>
 
-    suspend fun popular(language: String, page: Int): Result<MoviesPopular?>
+    suspend fun popular(language: String, page: Int): Result<MoviesResults?>
 
-    suspend fun topRated(language: String, page: Int): Result<MoviesTopRated?>
+    suspend fun topRated(language: String, page: Int): Result<MoviesResults?>
 
-    suspend fun upcoming(language: String, page: Int): Result<MoviesUpcoming?>
+    suspend fun upcoming(language: String, page: Int): Result<MoviesResults?>
 
     suspend fun details(movieId: Int, language: String): Result<MovieDetails?>
 
